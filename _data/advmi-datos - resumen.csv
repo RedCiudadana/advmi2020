@@ -1,0 +1,9 @@
+variable,titulo,descripcion,dato
+FuentePresupuesto,Presupuesto General Vigente de la República de Guatemala,Presupuesto General Vigente de la República de Guatemala,"Q.76,989,451,000"
+FechaPresupuesto,Fecha de Actualización,Fecha de Actualización,12/3/2020
+GastoDevengado,Gasto devengado,Gasto devengado,"Q.47,676,708,152.34"
+FechaPresupuesto,Fecha de Actualización,Fecha de Actualización,12/3/2020
+PorcentajeEjecucion,Porcentaje de ejecución,Porcentaje de ejecución,62%
+FechaPresupuesto,Fecha de Actualización,Fecha de Actualización,12/3/2020
+DescargarExcel,Descargar Excel,Descargar Excel,https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=xlsx
+DescargarCSV,Descargar CSV,Descargar CSV,https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=csv

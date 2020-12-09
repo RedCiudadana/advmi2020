@@ -20,8 +20,8 @@
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="https://okfnlabs.org/bubbletree/build/bubbletree.css">
-    <link type="text/css" rel="stylesheet" href="css/advmi.css">
-    <link type="text/css" rel="stylesheet" href="css/advmi-mobile.css">  
+    <link type="text/css" rel="stylesheet" href="/css/advmi.css">
+    <link type="text/css" rel="stylesheet" href="/css/advmi-mobile.css">  
     <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/jquery.history.js"></script>
     <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/raphael.js"></script>
@@ -31,89 +31,53 @@
     <script type="text/javascript" src="https://okfnlabs.org/bubbletree/styles/cofog.js"></script>    
     <script type="text/javascript">
        
-		$(function() {
-                    
+        $(function() {
+            var jsonData = {{ burbuja | dump | safe }};
+
+            var burbuja = {};
+
+            var colors = ['#9ccc39', '#009efa', '#0087fe', '#fcb810', '#80b924', '#f13f42', '#8465e6', '#653fe0', '#fda20c'];
+
+            jsonData.forEach((item, index) => {
+                if (!burbuja[item.cofog]) {
+                    burbuja[item.cofog] = {
+                        label: item.cofog,
+                        amount: item.monto,
+                        color: colors[index % 9]
+                    };
+                } else {
+                    burbuja[item.cofog].amount = burbuja[item.cofog].amount + item.monto;
+                }
+            });
+
+            burbuja = Object.values(burbuja);
+
+            // eliminar row de total
+            burbuja.pop();
+
+            total = burbuja.reduce((a, b) => { return a + b.amount }, 0);
+
             var data = {
                 color: '#231f20',
-                icon: 'img/icons/icon.svg',
+                icon: '/img/icons/icon.svg',
                 label: "Presupuesto General de Guatemala",
-                amount: 241500000,
-                children: [
-                    {
-                        color: '#9ccc39',
-                        label: "Servicios Públicos Generales",
-                        amount: 12014764.85
-                    },
-                    {
-                        color: '#009efa',
-                        label: "Defensa",
-                        amount: 3480074.43
-                    },
-                    {
-                        color: '#0087fe',
-                        label: "Orden Público Y Seguridad Ciudadana",
-                        amount: 19727738.57
-                    },
-                    {
-                        label: "Atención A Desastres Y Gestión De Riesgos",
-                        amount: 12008510.66
-                    },
-                    {
-                        color: '#fcb810',
-                        label: "Asuntos Económicos",
-                        amount: 14176046.76
-                    },
-                    {
-                        color: '#80b924',
-                        label: "Protección Ambiental",
-                        amount: 3397800.33
-                    },
-                    {
-                        label: "Urbanización Y Servicios Comunitarios",
-                        amount: 17818567.39
-                    },
-                    {
-                        color: '#f13f42',
-                        label: "Salud",
-                        amount: 16537286.25
-                    },
-                    {
-                        color: '#8465e6',
-                        label: "Actividades Deportivas, Recreativas, Cultura Y Religión",
-                        amount: 24348251.56
-                    },
-                    {
-                        color: '#653fe0',
-                        label: "Educación",
-                        amount: 40231931.77
-                    },
-                    {
-                        color: '#fda20c',
-                        label: "Protección Social",
-                        amount: 17588241.44
-                    },
-                    {
-                        label: "Transacciones De La Deuda Pública",
-                        amount: 26822000.00
-                    }
-                ]
+                amount: total,
+                children: burbuja
             }
-			
-			new BubbleTree({
-				data: data,
+            
+            new BubbleTree({
+                data: data,
                 bubbleType: 'icon',
-				container: '.bubbletree'
-			});
-
-		});
-                                        
-	</script>
+                container: '.bubbletree'
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="helper">
         <div class="preloader">
             <div class="preloader-content">
-                <img src="img/logo-wht.png" alt="logo-preloader">
+                <img src="/img/logo-wht.png" alt="logo-preloader">
                 <div class="circle-container">
                     <span class="circle circle-1"></span>
                     <span class="circle circle-2"></span>
@@ -140,13 +104,13 @@
             </div>
         </div>
         <div class="nav-direction">
-            <a href="index" class="nav-logo">
-                <img src="img/logo.png" alt="logo">
+            <a href="/index.html" class="nav-logo">
+                <img src="/img/logo.png" alt="logo">
             </a>
             <div class="nav-container">
-                <a href="index" class="nav-link-page">Inicio<span class="link-selector"></span></a>
-                <a href="presupuesto" class="nav-link-page">Presupuesto 2020<span class="link-selector"></span></a>
-                <a href="covid" class="nav-link-page">COVID-19<span class="link-selector"></span></a>
+                <a href="/index.html" class="nav-link-page">Inicio<span class="link-selector"></span></a>
+                <a href="/presupuesto" class="nav-link-page">Presupuesto 2020<span class="link-selector"></span></a>
+                <a href="/covid" class="nav-link-page">COVID-19<span class="link-selector"></span></a>
             </div>
         </div>
     </nav>
@@ -166,11 +130,11 @@
                     <div class="update-time">
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
                         Actualizado el: 
-                        <span class="time-clock">31/11/2019</span>
+                        <span class="time-clock">{{resumen.FechaPresupuesto.dato}}</span>
                     </div>
                     <div class="update-download">
-                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=csv" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
-                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=xlsx" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
+                        <a href="{{resumen.DescargarCSV.dato}}" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
+                        <a href="{{resumen.DescargarExcel.dato}}" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
                     </div>
                 </div>
             </div>
@@ -183,71 +147,13 @@
                     <th>% Total</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Servivcios Público Generales</td>
-                        <td>Q.12,014,764.85</td>
-                        <td>1,50%</td>
-                    </tr>
-                    <tr>
-                        <td>Defensa</td>
-                        <td>Q.3,480,074.43</td>
-                        <td>0,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Orden Público y Seguridad Ciudadana</td>
-                        <td>Q.19,727,738.57</td>
-                        <td>1,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Atención A Desastres Y Gestión De Riesgos</td>
-                        <td>Q.12,008,510.66</td>
-                        <td>4,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Asuntos Económicos</td>
-                        <td>Q.14,176,046.76</td>
-                        <td>2,80%</td>
-                    </tr>
-                    <tr>
-                        <td>Protección Ambiental</td>
-                        <td>Q.3,397,800.33</td>
-                        <td>4,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Urbanización y Servicios Comunitario</td>
-                        <td>Q.17,818,567.39</td>
-                        <td>4,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Salud</td>
-                        <td>Q.16,537,286.25</td>
-                        <td>0,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Actividades Deportivas, Recreativas, Cultura Y Religión</td>
-                        <td>Q.24,348,251.56</td>
-                        <td>8,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Educación</td>
-                        <td>Q.40,231,931.77</td>
-                        <td>9,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Protección Social</td>
-                        <td>Q.17,588,241.44</td>
-                        <td>1,10%</td>
-                    </tr>
-                    <tr>
-                        <td>Transacciones de la Deuda Pública</td>
-                        <td>Q.26,822,000.00</td>
-                        <td>0,00%</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>Q.175,430,128.00</td>
-                        <td>35,40%</td>
-                    </tr>
+                    {%- for item in treemap %}
+                        <tr>
+                            <td>{{item.Concepto}}</td>
+                            <td>Q.{{ item.Devengado | toLocaleString }}</td>
+                            <td>{{ item.Porcentaje | times: 100 }}%</td>
+                        </tr>
+                    {% endfor -%}
                 </tbody>
             </table>
             <div class="section-update">
@@ -259,7 +165,7 @@
                     <div class="update-time">
                         <i class="fa fa-clock-o" aria-hidden="true"></i>
                         Actualizado el: 
-                        <span class="time-clock">31/11/2019</span>
+                        <span class="time-clock">{{resumen.FechaPresupuesto.dato}}</span>
                     </div>
                     <div class="update-download">
                         <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=csv" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
@@ -308,9 +214,9 @@
             </div>
             <div class="footer-icons">
                 <a class="footer-cc" href="https://creativecommons.org/licenses/by-sa/3.0/gt/" target="_blank">
-                    <img src="img/footer-icon-1.png" alt="footer-icon">
-                    <img src="img/footer-icon-2.png" alt="footer-icon">
-                    <img src="img/footer-icon-3.png" alt="footer-icon">
+                    <img src="/img/footer-icon-1.png" alt="footer-icon">
+                    <img src="/img/footer-icon-2.png" alt="footer-icon">
+                    <img src="/img/footer-icon-3.png" alt="footer-icon">
                 </a>
             </div>
         </div>
@@ -318,5 +224,5 @@
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 <script type="text/javascript" src="https://d3plus.org/js/d3plus.v2.0.0-alpha.25.full.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 </html>

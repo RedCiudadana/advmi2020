@@ -1,0 +1,32 @@
+{
+  "FuentePresupuesto": {
+    "titulo": "Presupuesto General Vigente de la República de Guatemala",
+    "descripcion": "Presupuesto General Vigente de la República de Guatemala",
+    "dato": "Q.76,989,451,000"
+  },
+  "FechaPresupuesto": {
+    "titulo": "Fecha de Actualización",
+    "descripcion": "Fecha de Actualización",
+    "dato": "12/3/2020"
+  },
+  "GastoDevengado": {
+    "titulo": "Gasto devengado",
+    "descripcion": "Gasto devengado",
+    "dato": "Q.47,676,708,152.34"
+  },
+  "PorcentajeEjecucion": {
+    "titulo": "Porcentaje de ejecución",
+    "descripcion": "Porcentaje de ejecución",
+    "dato": "62%"
+  },
+  "DescargarExcel": {
+    "titulo": "Descargar Excel",
+    "descripcion": "Descargar Excel",
+    "dato": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=xlsx"
+  },
+  "DescargarCSV": {
+    "titulo": "Descargar CSV",
+    "descripcion": "Descargar CSV",
+    "dato": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=csv"
+  }
+}
