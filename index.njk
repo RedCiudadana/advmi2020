@@ -67,7 +67,6 @@
             <div class="nav-container">
                 <a href="/index.html" class="nav-link-page">Inicio<span class="link-selector"></span></a>
                 <a href="/presupuesto" class="nav-link-page">Presupuesto 2020<span class="link-selector"></span></a>
-                <a href="/covid" class="nav-link-page">COVID-19<span class="link-selector"></span></a>
             </div>
         </div>
     </nav>
@@ -172,24 +171,6 @@
                         <a href="{{resumen.DescargarExcel.dato}}" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
                     </div>
                 </div>
-            </div>
-
-            <label class="big-label">Programas COVID-19</label>
-
-            <div class="service-grid">
-                {% for item in covid19 %}
-                    {% if loop.index0 % 5 == 0 %}
-                        <div class="service-row">
-                    {% endif %}
-                        <div class="service-container">
-                            <img src="/img/ADVMI-07.png" alt="service-icon">
-                            <label>{{ item.Concepto }}</label>
-                            <span>Q.{{ item.Devengado | toLocaleString }}</span>
-                        </div>
-                    {% if loop.index % 5 == 0 or loop.last %}
-                        </div>
-                    {% endif %}
-                {% endfor %}
             </div>
         </section>
 

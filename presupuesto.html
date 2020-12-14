@@ -110,7 +110,6 @@
             <div class="nav-container">
                 <a href="/index.html" class="nav-link-page">Inicio<span class="link-selector"></span></a>
                 <a href="/presupuesto" class="nav-link-page">Presupuesto 2020<span class="link-selector"></span></a>
-                <a href="/covid" class="nav-link-page">COVID-19<span class="link-selector"></span></a>
             </div>
         </div>
     </nav>
@@ -168,8 +167,8 @@
                         <span class="time-clock">{{resumen.FechaPresupuesto.dato}}</span>
                     </div>
                     <div class="update-download">
-                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=csv" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
-                        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2a007PSOaaqBSHnC8kvA5m5NMNWPgoppo3PpK2CMFSqZldNyTHZfjfocLoQnw6cPbeopyhfKneqDD/pub?output=xlsx" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
+                        <a href="{{resumen.DescargarCSV.dato}}" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
+                        <a href="{{resumen.DescargarExcel.dato}}" class="download-option"><i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
                     </div>
                 </div>
             </div>
