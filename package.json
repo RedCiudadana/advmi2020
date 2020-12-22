@@ -4,7 +4,8 @@
   "description": "¿A dónde van mis impuestos? - Conoce todo sobre el Presupuesto de Guatemala.",
   "main": "index.js",
   "dependencies": {
-    "@11ty/eleventy": "^0.11.1"
+    "@11ty/eleventy": "^0.11.1",
+    "chart.js": "^2.9.4"
   },
   "devDependencies": {},
   "scripts": {
