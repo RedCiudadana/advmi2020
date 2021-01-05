@@ -121,7 +121,7 @@ function fromByteArray (uint8) {
  * Author: Mikola Lysenko
  *
  * Ported from Stanford bit twiddling hack library:
- *    http://graphics.stanford.edu/~seander/bithacks.html
+ *    https://graphics.stanford.edu/~seander/bithacks.html
  */
 
 "use strict"; "use restrict";
@@ -325,7 +325,7 @@ exports.nextCombination = function(v) {
 /*!
  * The buffer module from node.js, for the browser.
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <feross@feross.org> <https://feross.org>
  * @license  MIT
  */
 /* eslint-disable no-proto */
@@ -1313,7 +1313,7 @@ function utf8Slice (buf, start, end) {
   return decodeCodePointsArray(res)
 }
 
-// Based on http://stackoverflow.com/a/22747272/680742, the browser with
+// Based on https://stackoverflow.com/a/22747272/680742, the browser with
 // the lowest limit is Chrome, with 0x10000 args.
 // We go 1 magnitude less, for safety
 var MAX_ARGUMENTS_LENGTH = 0x1000
@@ -3385,7 +3385,7 @@ module.exports = iota
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <feross@feross.org> <https://feross.org>
  * @license  MIT
  */
 
@@ -7856,7 +7856,7 @@ numeric.MPStoLP = function MPStoLP(MPS) {
 //
 // Usage:
 //
-//   <script src=http://davidbau.com/encode/seedrandom-min.js></script>
+//   <script src=https://davidbau.com/encode/seedrandom-min.js></script>
 //
 //   Math.seedrandom('yipee'); Sets Math.random to a function that is
 //                             initialized using the given explicit seed.
@@ -7870,7 +7870,7 @@ numeric.MPStoLP = function MPStoLP(MPS) {
 //                             Seeds using the given explicit seed mixed
 //                             together with accumulated entropy.
 //
-//   <script src="http://bit.ly/srandom-512"></script>
+//   <script src="https://bit.ly/srandom-512"></script>
 //                             Seeds using physical random bits downloaded
 //                             from random.org.
 //
@@ -8052,7 +8052,7 @@ function ARC4(key) {
     return r;
   };
   // For robust unpredictability discard an initial batch of values.
-  // See http://www.rsa.com/rsalabs/node.asp?id=2009
+  // See https://www.rsa.com/rsalabs/node.asp?id=2009
   me.g(width);
 }
 
@@ -8715,7 +8715,7 @@ exports.solveQP = solveQP;
 /*
 Shanti Rao sent me this routine by private email. I had to modify it
 slightly to work on Arrays instead of using a Matrix object.
-It is apparently translated from http://stitchpanorama.sourceforge.net/Python/svd.py
+It is apparently translated from https://stitchpanorama.sourceforge.net/Python/svd.py
 */
 
 numeric.svd= function svd(A) {
@@ -19083,7 +19083,7 @@ d3plus = {};
 
 /**
  * The current version of **D3plus** you are using. Returns a string in
- * [semantic versioning](http://semver.org/) format.
+ * [semantic versioning](https://semver.org/) format.
  * @property d3plus.version
  * @for d3plus
  * @type String
@@ -20076,7 +20076,7 @@ module.exports = function(list, andText, max, moreText) {
 //------------------------------------------------------------------------------
 module.exports = function(value) {
 
-  // great unicode list: http://asecuritysite.com/coding/asc2
+  // great unicode list: https://asecuritysite.com/coding/asc2
   var diacritics = [
     [/[\300-\305]/g, "A"], [/[\340-\345]/g, "a"],
     [/[\306]/g, "AE"], [/[\346]/g, "ae"],
@@ -26535,8 +26535,8 @@ module.exports = function(vars) {
     .attr("id","d3plus")
     .attr("width",vars.width.value)
     .attr("height",vars.height.value)
-    .attr("xmlns","http://www.w3.org/2000/svg")
-    .attr("xmlns:xlink","http://www.w3.org/1999/xlink");
+    .attr("xmlns","https://www.w3.org/2000/svg")
+    .attr("xmlns:xlink","https://www.w3.org/1999/xlink");
 
   // Enter BG Rectangle
   vars.g.bg = vars.svg.selectAll("rect#bg").data(["bg"]);
@@ -28476,7 +28476,7 @@ module.exports = function(vars,message) {
     .style("background-repeat", "no-repeat")
     .style("cursor", "pointer")
     .on(events.click, function(){
-      window.open("http://www.d3plus.org/", "_blank");
+      window.open("https://www.d3plus.org/", "_blank");
     });
 
   var logo = d3.hsl(bg).l < 0.5 ? vars.messages.branding.image.dark : vars.messages.branding.image.light;
@@ -30608,8 +30608,8 @@ module.exports = {
   branding: {
     accepted: [Boolean],
     image: {
-      dark: "http://d3plus.org/assets/img/icon-transparent-invert.png",
-      light: "http://d3plus.org/assets/img/icon-transparent.png"
+      dark: "https://d3plus.org/assets/img/icon-transparent-invert.png",
+      light: "https://d3plus.org/assets/img/icon-transparent.png"
     },
     value: false
   },
