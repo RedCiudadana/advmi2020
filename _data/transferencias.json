@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "Origen": "Servicios Públicos Generales",
+    "Final": "Servicios Públicos Generales",
+    "year": 2020,
+    "Transferencia": -101668121
+  },
+  {
+    "id": 2,
+    "Origen": "Defensa",
+    "Final": "Defensa",
+    "year": 2020,
+    "Transferencia": 0
+  },
+  {
+    "id": 3,
+    "Origen": "Orden Público Y Seguridad Ciudadana",
+    "Final": "Orden Público Y Seguridad Ciudadana",
+    "year": 2020,
+    "Transferencia": 100000000
+  },
+  {
+    "id": 4,
+    "Origen": "Atención A Desastres Y Gestión De Riesgos",
+    "Final": "Atención A Desastres Y Gestión De Riesgos",
+    "year": 2020,
+    "Transferencia": 0
+  },
+  {
+    "id": 5,
+    "Origen": "Asuntos Económicos",
+    "Final": "Asuntos Económicos",
+    "year": 2020,
+    "Transferencia": 434771
+  },
+  {
+    "id": 6,
+    "Origen": "Protección Ambiental",
+    "Final": "Protección Ambiental",
+    "year": 2020,
+    "Transferencia": 1183350
+  },
+  {
+    "id": 7,
+    "Origen": "Urbanización Y Servicios Comunitarios",
+    "Final": "Urbanización Y Servicios Comunitarios",
+    "year": 2020,
+    "Transferencia": 0
+  },
+  {
+    "id": 8,
+    "Origen": "Salud",
+    "Final": "Salud",
+    "year": 2020,
+    "Transferencia": 0
+  },
+  {
+    "id": 9,
+    "Origen": "Actividades Deportivas, Recreativas, Cultura Y Religión",
+    "Final": "Actividades Deportivas, Recreativas, Cultura Y Religión",
+    "year": 2020,
+    "Transferencia": 48500
+  },
+  {
+    "id": 10,
+    "Origen": "Educación",
+    "Final": "Educación",
+    "year": 2020,
+    "Transferencia": 1500
+  },
+  {
+    "id": 11,
+    "Origen": "Protección Social",
+    "Final": "Protección Social",
+    "year": 2020,
+    "Transferencia": 0
+  },
+  {
+    "id": 12,
+    "Origen": "Transacciones De La Deuda Pública",
+    "Final": "Transacciones De La Deuda Pública",
+    "year": 2020,
+    "Transferencia": 0
+  }
+]

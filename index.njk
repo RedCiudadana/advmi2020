@@ -420,7 +420,20 @@
         }
     </style>
     <script type="text/javascript">
-        var budget_data = {{ treemap | dump | safe }};
+        var treemap = {{ treemap | dump | safe }};
+        var financiamiento = {{ financiamiento | dump | safe }};
+
+        var treemap2020 = treemap.filter((item) => item.year === 2020);
+        var treemap2019 = treemap.filter((item) => item.year === 2019);
+        var treemap2018 = treemap.filter((item) => item.year === 2018);
+        var treemap2017 = treemap.filter((item) => item.year === 2017);
+        var treemap2016 = treemap.filter((item) => item.year === 2016);
+
+        var financiamiento2020 = financiamiento.filter((item) => item.year === 2020);
+        var financiamiento2019 = financiamiento.filter((item) => item.year === 2019);
+        var financiamiento2018 = financiamiento.filter((item) => item.year === 2018);
+        var financiamiento2017 = financiamiento.filter((item) => item.year === 2017);
+        var financiamiento2016 = financiamiento.filter((item) => item.year === 2016);
 
         var getRandomData = function() {
             return [
@@ -447,49 +460,33 @@
             ];
         };
 
-        var createTreemap = function(id) {
+        var createTreemap = function(id, data, idLabel, sizeLabel) {
             d3plus.viz()
                 .container(id)
-                .data(getRandomData())
+                .data(data ? data : getRandomData())
                 .type("tree_map")
-                .id("concepto")
+                .id(idLabel ? idLabel : "concepto")
                 .format(
                     {
                         locale: 'es_ES'
                     }
                 )
-                .size("monto")
+                .size(sizeLabel ? sizeLabel : "monto")
                 .font({ "family": "Aileron SemiBold" })
                 .draw();
         };
 
-        budget_data.pop();
+        createTreemap('#treemap-1-2020', treemap2020, "Concepto", "Devengado");
+        createTreemap('#treemap-1-2019', treemap2019, "Concepto", "Devengado");
+        createTreemap('#treemap-1-2018', treemap2018, "Concepto", "Devengado");
+        createTreemap('#treemap-1-2017', treemap2017, "Concepto", "Devengado");
+        createTreemap('#treemap-1-2016', treemap2016, "Concepto", "Devengado");
 
-        d3plus.viz()
-            .container("#viz")
-            .data(budget_data)
-            .type("tree_map")
-            .id("Concepto")
-            .format(
-                {
-                    locale: 'es_ES'
-                }
-            )
-            .size("Porcentaje")
-            .font({ "family": "Aileron SemiBold" })
-            .draw();
-
-        createTreemap('#treemap-1-2020');
-        createTreemap('#treemap-1-2019');
-        createTreemap('#treemap-1-2018');
-        createTreemap('#treemap-1-2017');
-        createTreemap('#treemap-1-2016');
-
-        createTreemap('#treemap-2-2020');
-        createTreemap('#treemap-2-2019');
-        createTreemap('#treemap-2-2018');
-        createTreemap('#treemap-2-2017');
-        createTreemap('#treemap-2-2016');
+        createTreemap('#treemap-2-2020', financiamiento2020, "Concepto", "Ingreso");
+        createTreemap('#treemap-2-2019', financiamiento2019, "Concepto", "Ingreso");
+        createTreemap('#treemap-2-2018', financiamiento2018, "Concepto", "Ingreso");
+        createTreemap('#treemap-2-2017', financiamiento2017, "Concepto", "Ingreso");
+        createTreemap('#treemap-2-2016', financiamiento2016, "Concepto", "Ingreso");
     </script>
 </body>
 </html>
