@@ -98,7 +98,8 @@
             </div>
         </section>
         <section class="section-graph">
-            <span class="section-divider">Presupuesto</span>
+            <span class="section-divider" style="margin: 0; padding-bottom: 1rem;">Presupuesto</span>
+            <span class="bubble-description">En esta apartado encontrará documentación oficial del MINFIN sobre el presupuesto del MSPAS en 2020 tanto a nivel central, hospitales y unidades ejecutoras.</span>
             <div class="questions-container">
                 <div id="tabs" style="margin-bottom: 2rem;">
                     <ul>
@@ -236,17 +237,25 @@
                     {# End Financiamiento #}
                     {# Start Transferencias #}
                     <div id="tabs-3">
-                        <p>Pendiente</p>
+                        <table>
+                            <thead>
+                                <th style="max-width: 250px;">Origen</th>
+                                <th style="max-width: 250px;">Final</th>
+                                <th>Monto</th>
+                            </thead>
+                            <tbody>
+                                {%- for item in transferencias %}
+                                    <tr>
+                                        <td style="max-width: 150px;">{{ item.Origen }}</td>
+                                        <td>{{ item.Final }}</td>
+                                        <td>Q{{ item.Transferencia | toLocaleString }}</td>
+                                    </tr>
+                                {% endfor -%}
+                            </tbody>
+                        </table>
                     </div>
                     {# End Transferencias #}
                 </div>
-            </div>
-        </section>
-        <section class="section-graph">
-            <span class="section-divider">Ejecución presupuestaria por instituciones</span>
-            <div class="section-treemap">
-                <div id="viz"></div>
-                <div id="treemap-2-2020"></div>
             </div>
             <div class="section-update">
                 <span class="update-label">
@@ -267,6 +276,8 @@
             </div>
         </section>
         <section class="section-table">
+            <span class="section-divider" style="margin: 0; padding-bottom: 1rem;">Presupuesto</span>
+            <span class="bubble-description">Presupuestos por rubros</span>
             <table>
                 <thead>
                     <th>Rubro</th>
