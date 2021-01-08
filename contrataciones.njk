@@ -1,7 +1,10 @@
 {% extends "./base.njk" %}
 
 {% block main %}
-    <section class="section-budget">
+    <section class="section-table" style="padding-bottom: 0;">
+        <span class="section-divider" style="margin: 0; padding-bottom: 1rem;">Contrataciones</span>
+    </section>
+    <section class="section-budget" style="padding-top: 1rem;">
         <div class="budget-container">
             <span class="budget-head">{{ resumen.FuentePresupuesto.titulo }}</span>
             <span class="budget-main-number">{{ resumen.FuentePresupuesto.dato }}</span>
@@ -19,9 +22,9 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="chart container" style="width: 700px; margin: auto;">
-            <canvas id="chart-area"></canvas>
+    <section class="section-graph">
+        <div class="chart container" style="width: 900px; margin: auto;">
+            <canvas id="chart-area" style="margin-bottom: 1.4rem;"></canvas>
             <canvas id="canvas"></canvas>
         </div>
     </section>
@@ -49,8 +52,23 @@
                             randomScalingFactor(),
                             randomScalingFactor(),
                             randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
                         ],
                         backgroundColor: [
+                            '#F13F42',
+                            '#0087FE',
+                            '#653FE0',
+                            '#EC5657',
+                            '#FDA20C',
+                            '#F13F42',
+                            '#0087FE',
+                            '#653FE0',
+                            '#EC5657',
+                            '#FDA20C',
                             '#F13F42',
                             '#0087FE',
                             '#653FE0',
@@ -60,11 +78,16 @@
                         label: 'Contrataciones por categoria'
                     }],
                     labels: [
-                        'Salud',
-                        'Justicia',
-                        'Municipalidades',
-                        'Seguridad',
-                        'Economía'
+                        "Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)",
+                        "Licitación Pública (Art. 17 LCE)",
+                        "Cotización (Art. 38 LCE)",
+                        "Arrendamiento o Adquisición de Bienes Inmuebles (Art.43 inciso e)",
+                        "Arrendamientos por Cotización(Art.43 inciso d )",
+                        "Convenios y Tratados Internacionales (Art. 1 LCE)",
+                        "Adquisición Directa por Ausencia de Oferta (Art. 32 LCE)",
+                        "Procedimientos Regulados por el artículo 44 LCE (Casos de Excepción)",
+                        "Negociaciones entre Entidades Públicas (Art. 2 LCE)",
+                        "Arrendamientos por Licitación Pública(Art.43 inciso d )"
                     ]
                 },
                 options: {
@@ -82,7 +105,7 @@
             config = {
                 labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                 datasets: [{
-                    label: 'Completadas',
+                    label: 'Vigentes',
                     backgroundColor: '#F13F42',
                     data: [
                         randomScalingFactor(),
@@ -94,7 +117,7 @@
                         randomScalingFactor()
                     ]
                 }, {
-                    label: 'Adjudicadas',
+                    label: 'Terminados Adjudicados',
                     backgroundColor: '#0087FE',
                     data: [
                         randomScalingFactor(),
@@ -106,7 +129,19 @@
                         randomScalingFactor()
                     ]
                 }, {
-                    label: 'Pendientes de confirmar',
+                    label: 'Finalizados Anulados',
+                    backgroundColor: '#653FE0',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ]
+                }, {
+                    label: 'Finalizados Desiertos',
                     backgroundColor: '#653FE0',
                     data: [
                         randomScalingFactor(),
