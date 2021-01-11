@@ -32,6 +32,11 @@
 
     <script type="text/javascript" src="//d3plus.org/js/d3.js"></script>
     <script type="text/javascript" src="//d3plus.org/js/d3plus.js"></script>
+
+    {# Page styles #}
+    {% block head_styles %}
+    {% endblock %}
+    {# End Page styles #}
 </head>
 <body>
     {# Loader #}
@@ -74,6 +79,7 @@
                 <a href="/index.html" class="nav-link-page">Inicio<span class="link-selector"></span></a>
                 <a href="/presupuesto" class="nav-link-page">Presupuesto 2020<span class="link-selector"></span></a>
                 <a href="/contrataciones" class="nav-link-page">Contrataciones<span class="link-selector"></span></a>
+                <a href="/roadmap" class="nav-link-page">Roadmap<span class="link-selector"></span></a>
             </div>
         </div>
     </nav>
@@ -82,6 +88,8 @@
         {% block main %}
         {% endblock %}
     </main>
+    {% block main_no_container %}
+    {% endblock %}
     {# Footer #}
     <footer>
         <div class="footer-primary">

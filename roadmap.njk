@@ -1,0 +1,205 @@
+{% extends "./base.njk" %}
+
+{% block head_styles %}
+    <link rel="stylesheet" href="/scss/app.css">
+{% endblock %}
+
+{% block main_no_container %}
+    <div class="container">
+        <div class="row" style="padding-top: 2rem;">
+            <div class="col-12">
+                <h1>Roadmap</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="roadmap-page">
+        <div class="row">
+            <div class="col-6">
+                <div class="box-left">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box-right">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="box-left">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box-right">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="box-left">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box-right">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="box-left">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box-right">
+                    <small>ENERO 2021</small>
+                    <h2>Step 1</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia soluta quae et voluptates sequi fugiat asperiores veritatis impedit harum commodi alias laborum similique obcaecati corporis aliquid tempora, atque vel?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_scripts %}
+{% endblock %}
+
+{% block page_styles %}
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+        }
+
+        body {
+            background-color: #EDEDEE;
+        }
+
+        .box-left {
+            float: left;
+            margin-bottom: 4rem;
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 2px 4px 0 hsla(0,0%,69%,.5);
+            border-radius: 0 0 4px 4px;
+            width: calc(100% - 40px);
+            position: relative;
+            top: -10px;
+        }
+
+        .box-right {
+            float: right;
+            margin-top: 6rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 2px 4px 0 hsla(0,0%,69%,.5);
+            border-radius: 0 0 4px 4px;
+            width: calc(100% - 40px);
+            position: relative;
+        }
+
+        .box-left:after {
+            content: "";
+            position: absolute;
+            width: 34px;
+            height: 29px;
+            right: -71px;
+            top: -10px;
+            background: url(https://presupuestoabierto.gob.cl/images/roadmap-marker.svg?c0441d2…);
+            display: block;
+        }
+
+        .box-right:after {
+            content: "";
+            position: absolute;
+            width: 34px;
+            height: 29px;
+            left: -67px;
+            top: -10px;
+            background: url(https://presupuestoabierto.gob.cl/images/roadmap-marker.svg?c0441d2…);
+            display: block;
+            transform: rotate(180deg);
+        }
+
+        #roadmap-page {
+            position: relative;
+        }
+
+        #roadmap-page:before {
+            content: "";
+            position: absolute;
+            border: none;
+            border-top-color: initial;
+            border-top-style: none;
+            border-top-width: initial;
+            border-right-color: initial;
+            border-right-style: none;
+            border-right-width: initial;
+            border-bottom-color: initial;
+            border-bottom-style: none;
+            border-bottom-width: initial;
+            border-left-color: initial;
+            border-left-style: none;
+            border-left-width: initial;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            height: 100%;
+            left: 50%;
+        }
+
+        @media (min-width: 992px) {
+            #roadmap-page:before {
+                border-left: 2px dashed #d7d6d7;
+                border-left-width: 2px;
+                border-left-style: dashed;
+                border-left-color: rgb(215, 214, 215);
+            }
+        }
+
+        #roadmap-page small {
+            font-size: 0.75rem;
+        }
+    </style>
+{% endblock %}
