@@ -1,0 +1,100 @@
+{% extends "base.njk" %}
+
+{# Esto es para no mostrar el navbar #}
+{% block navbar %}
+{% endblock %}
+
+{% block main %}
+    <section class="section-graph">
+        <label class="bubble-label">Presupuesto General de Egresos de Guatemala 2020</label>
+        <span class="bubble-description">En esta apartado encontrará documentación oficial del MINFIN sobre el presupuesto del MSPAS en 2020 tanto a nivel central, hospitales y unidades ejecutoras.</span>
+        <div class="bubbletree-wrapper">
+            <div class="bubbletree"></div>
+        </div>
+        <div class="section-update">
+            <span class="update-label">
+                <span class="update-strong">Clasificacion Funcional del Presupuesto</span>
+                <span class="update-source">Fuente: Ministerio de Finanzas Publicas. Portal de Datos Abiertos</span>
+            </span>
+            <div class="update-actions">
+                <div class="update-time">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Actualizado el:
+                    <span class="time-clock">{{ resumen.FechaPresupuesto.dato }}</span>
+                </div>
+                <div class="update-download">
+                    <a href="{{ resumen.DescargarCSV.dato }}" class="download-option">
+                        <i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
+                    <a href="{{ resumen.DescargarExcel.dato }}" class="download-option">
+                        <i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{# Esto es para no mostrar el footer #}
+{% block footer %}
+{% endblock %}
+
+{% block page_scripts %}
+    <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/jquery.history.js"></script>
+    <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/raphael.js"></script>
+    <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/Tween.js"></script>
+    <script type="text/javascript" src="https://okfnlabs.org/bubbletree/lib/vis4.js"></script>
+    <script type="text/javascript" src="https://okfnlabs.org/bubbletree/build/bubbletree.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            fetch('/burbuja.json')
+                .then((json) => {
+                    if (!json.ok) {
+                        throw 'Error al cargar datos de burbuja';
+                    }
+
+                    return json.json();
+                })
+                .then((jsonData) => {
+
+                    var burbuja = {};
+
+                    var colors = ['#9ccc39', '#009efa', '#0087fe', '#fcb810', '#80b924', '#f13f42', '#8465e6', '#653fe0', '#fda20c'];
+
+                    jsonData.forEach((item, index) => {
+                        if (!burbuja[item.cofog]) {
+                            burbuja[item.cofog] = {
+                                label: item.cofog,
+                                amount: item.monto,
+                                color: colors[index % 9]
+                            };
+                        } else {
+                            burbuja[item.cofog].amount = burbuja[item.cofog].amount + item.monto;
+                        }
+                    });
+
+                    burbuja = Object.values(burbuja);
+
+                    // eliminar row de total
+                    burbuja.pop();
+
+                    total = burbuja.reduce((a, b) => { return a + b.amount }, 0);
+
+                    var data = {
+                        color: '#231f20',
+                        label: "Presupuesto General de Guatemala",
+                        amount: total,
+                        children: burbuja
+                    }
+
+                    new BubbleTree({
+                        data: data,
+                        bubbleType: 'icon',
+                        container: '.bubbletree'
+                    });
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        });
+    </script>
+    <script type="text/javascript" src="/js/main.js"></script>
+{% endblock %}

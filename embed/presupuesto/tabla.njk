@@ -1,0 +1,52 @@
+{% extends "base.njk" %}
+
+{# Esto es para no mostrar el navbar #}
+{% block navbar %}
+{% endblock %}
+
+{% block main %}
+    <section class="section-table">
+        <table>
+            <thead>
+                <th>Rubro</th>
+                <th>Monto</th>
+                <th>% Total</th>
+            </thead>
+            <tbody>
+                {%- for item in treemap %}
+                    <tr>
+                        <td>{{ item.Concepto }}</td>
+                        <td>Q.{{ item.Devengado | toLocaleString }}</td>
+                        <td>{{ item.Porcentaje * 100 }}%</td>
+                    </tr>
+                {% endfor -%}
+            </tbody>
+        </table>
+        <div class="section-update">
+            <span class="update-label">
+                <span class="update-strong">Clasificacion Funcional del Presupuesto</span>
+                <span class="update-source">Fuente: Ministerio de Finanzas Publicas. Portal de Datos Abiertos</span>
+            </span>
+            <div class="update-actions">
+                <div class="update-time">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Actualizado el:
+                    <span class="time-clock">{{ resumen.FechaPresupuesto.dato }}</span>
+                </div>
+                <div class="update-download">
+                    <a href="{{ resumen.DescargarCSV.dato }}" class="download-option">
+                        <i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
+                    <a href="{{ resumen.DescargarExcel.dato }}" class="download-option">
+                        <i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{# Esto es para no mostrar el footer #}
+{% block footer %}
+{% endblock %}
+
+{% block page_scripts %}
+{% endblock %}
