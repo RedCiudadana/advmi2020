@@ -19,6 +19,12 @@
                     <span class="time-clock">{{ resumen.FechaPresupuesto.dato }}</span>
                 </div>
                 <div class="update-download">
+                    <button id="button-dialog-burbujas" class="download-option"><i class="fa fa-code" aria-hidden="true"></i>Embed</button>
+                    <div id="dialog-burbujas" title="Burbujas de presupuesto">
+                        <div class="input-container">
+                            <input value="&lt;embed src=&quot;https://presupuesto.redciudadana.org/embed/presupuesto/burbujas&quot;&gt;">
+                        </div>
+                    </div>
                     <a href="{{ resumen.DescargarCSV.dato }}" class="download-option">
                         <i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
                     <a href="{{ resumen.DescargarExcel.dato }}" class="download-option">
@@ -56,6 +62,12 @@
                     <span class="time-clock">{{ resumen.FechaPresupuesto.dato }}</span>
                 </div>
                 <div class="update-download">
+                    <button id="button-dialog-table" class="download-option"><i class="fa fa-code" aria-hidden="true"></i>Embed</button>
+                    <div id="dialog-table" title="Tabla de presupuesto">
+                        <div class="input-container">
+                            <input value="&lt;embed src=&quot;https://presupuesto.redciudadana.org/embed/presupuesto/tabla&quot;&gt;">
+                        </div>
+                    </div>
                     <a href="{{ resumen.DescargarCSV.dato }}" class="download-option">
                         <i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
                     <a href="{{ resumen.DescargarExcel.dato }}" class="download-option">
@@ -132,6 +144,23 @@
                 .catch((error) => {
                     console.error(error);
                 });
+
+            $( "#dialog-table" ).dialog({
+                autoOpen: false
+            });
+
+            $( "#dialog-burbujas" ).dialog({
+                autoOpen: false
+            });
+
+
+            $( "#button-dialog-table" ).on( "click", function() {
+                $( "#dialog-table" ).dialog( "open" );
+            });
+
+            $( "#button-dialog-burbujas" ).on( "click", function() {
+                $( "#dialog-burbujas" ).dialog( "open" );
+            });
         });
     </script>
     <script type="text/javascript" src="/js/main.js"></script>

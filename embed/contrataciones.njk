@@ -1,0 +1,205 @@
+{% extends "base.njk" %}
+
+{# Esto es para no mostrar el navbar #}
+{% block navbar %}
+{% endblock %}
+
+{% block main %}
+    <section class="section-graph">
+        <div class="chart container" style="width: 900px; margin: auto;">
+            <canvas id="chart-area" style="margin-bottom: 1.4rem;"></canvas>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="section-update">
+            <span class="update-label">
+                <span class="update-strong">Clasificacion Funcional del Presupuesto</span>
+                <span class="update-source">Fuente: Ministerio de Finanzas Publicas. Portal de Datos Abiertos</span>
+            </span>
+            <div class="update-actions">
+                <div class="update-time">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    Actualizado el:
+                    <span class="time-clock">{{ resumen.FechaPresupuesto.dato }}</span>
+                </div>
+                <div class="update-download">
+                    <button id="button-dialog-contrataciones" class="download-option"><i class="fa fa-code" aria-hidden="true"></i>Embed</button>
+                    <div id="dialog-contrataciones" title="Contrataciones">
+                        <div class="input-container">
+                            <input value="&lt;embed src=&quot;https://presupuesto.redciudadana.org/embed/contrataciones&quot;&gt;">
+                        </div>
+                    </div>
+                    <a href="{{ resumen.DescargarCSV.dato }}" class="download-option">
+                        <i class="fa fa-download" aria-hidden="true"></i>Descargar CSV</a>
+                    <a href="{{ resumen.DescargarExcel.dato }}" class="download-option">
+                        <i class="fa fa-download" aria-hidden="true"></i>Descargar excel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{# Esto es para no mostrar el footer #}
+{% block footer %}
+{% endblock %}
+
+{% block page_scripts %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function() {
+            $( "#dialog-contrataciones" ).dialog({
+                autoOpen: false
+            });
+
+            $( "#button-dialog-contrataciones" ).on( "click", function() {
+                $( "#dialog-contrataciones" ).dialog( "open" );
+            });
+        });
+        window.onload = function() {
+            var randomScalingFactor = function() {
+                return Math.round(Math.random() * 100);
+            };
+
+            var config;
+            var ctx;
+
+            config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                        ],
+                        backgroundColor: [
+                            '#F13F42',
+                            '#0087FE',
+                            '#653FE0',
+                            '#EC5657',
+                            '#FDA20C',
+                            '#F13F42',
+                            '#0087FE',
+                            '#653FE0',
+                            '#EC5657',
+                            '#FDA20C',
+                            '#F13F42',
+                            '#0087FE',
+                            '#653FE0',
+                            '#EC5657',
+                            '#FDA20C',
+                        ],
+                        label: 'Contrataciones por categoria'
+                    }],
+                    labels: [
+                        "Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)",
+                        "Licitación Pública (Art. 17 LCE)",
+                        "Cotización (Art. 38 LCE)",
+                        "Arrendamiento o Adquisición de Bienes Inmuebles (Art.43 inciso e)",
+                        "Arrendamientos por Cotización(Art.43 inciso d )",
+                        "Convenios y Tratados Internacionales (Art. 1 LCE)",
+                        "Adquisición Directa por Ausencia de Oferta (Art. 32 LCE)",
+                        "Procedimientos Regulados por el artículo 44 LCE (Casos de Excepción)",
+                        "Negociaciones entre Entidades Públicas (Art. 2 LCE)",
+                        "Arrendamientos por Licitación Pública(Art.43 inciso d )"
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    // maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text: 'Contrataciones por categoria'
+                    },
+                }
+            };
+            ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+
+            config = {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                datasets: [{
+                    label: 'Vigentes',
+                    backgroundColor: '#F13F42',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ]
+                }, {
+                    label: 'Terminados Adjudicados',
+                    backgroundColor: '#0087FE',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ]
+                }, {
+                    label: 'Finalizados Anulados',
+                    backgroundColor: '#653FE0',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ]
+                }, {
+                    label: 'Finalizados Desiertos',
+                    backgroundColor: '#653FE0',
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ]
+                }]
+            };
+            ctx = document.getElementById('canvas').getContext('2d');
+            window.myBar = new Chart(ctx, {
+                type: 'bar',
+                data: config,
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Contrataciones por estado'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    responsive: true,
+                    // maintainAspectRatio: false,
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    }
+                }
+            });
+        };
+    </script>
+{% endblock %}
