@@ -188,7 +188,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
     
     .nav-link-page:last-child {
-        width: 100%;
+        width: 50%;
     }
     
     .link-selector {
@@ -460,8 +460,24 @@ and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 12px;
         margin: 0 5px 0 0;
     }
-    
-    .download-option:first-child {
+
+    .download-option {
+        padding-right: 10px;
+        padding-left: 10px;
+        height: 100%;
+    }
+
+    .embed-button {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        border: unset;
+        font-size: 12px;
+        display: flex;
+        color: #2E2E2F;
+        text-transform: uppercase;
+    }
+
+    .download-option:not(:last-child) {
         border-right: 1px solid #4D4D4D;
     }
     
@@ -489,5 +505,19 @@ and (-webkit-min-device-pixel-ratio: 2) {
     td:first-child {
         text-align: center;
     }
-        
+
+    .tabs-nolayout.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+        font-size: 1rem;
+    }
+
+    .treemap-container div {
+        width: 200px;
+        height: 600px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
 }

@@ -24,6 +24,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="/css/advmi.css">
     <link type="text/css" rel="stylesheet" href="/css/advmi-mobile.css">
+    <link type="text/css" rel ="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
     <link type="text/css" rel="stylesheet" href="/scss/app.css">
     <script type="text/javascript" src="//d3plus.org/js/d3.js"></script>
     <script type="text/javascript" src="//d3plus.org/js/d3plus.js"></script>
@@ -150,27 +151,27 @@
                                 </li>
                             </ul>
                             <div id="tabs-1-2020">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-1-2020"></div>
                                 </div>
                             </div>
                             <div id="tabs-1-2019">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-1-2019"></div>
                                 </div>
                             </div>
                             <div id="tabs-1-2018">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-1-2018"></div>
                                 </div>
                             </div>
                             <div id="tabs-1-2017">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-1-2017"></div>
                                 </div>
                             </div>
                             <div id="tabs-1-2016">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-1-2016"></div>
                                 </div>
                             </div>
@@ -208,27 +209,27 @@
                                 </li>
                             </ul>
                             <div id="tabs-2-2020">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-2-2020"></div>
                                 </div>
                             </div>
                             <div id="tabs-2-2019">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-2-2019"></div>
                                 </div>
                             </div>
                             <div id="tabs-2-2018">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-2-2018"></div>
                                 </div>
                             </div>
                             <div id="tabs-2-2017">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-2-2017"></div>
                                 </div>
                             </div>
                             <div id="tabs-2-2016">
-                                <div class="section-treemap-tab-1" style="height: 440px; width: 80%; margin: auto;">
+                                <div class="section-treemap-tab-1 treemap-container">
                                     <div id="treemap-2-2016"></div>
                                 </div>
                             </div>
@@ -282,7 +283,6 @@
             </div>
         </section>
         <section class="section-table">
-            <span class="section-divider" style="margin: 0; padding-bottom: 1rem;">Presupuesto</span>
             <span class="bubble-description">Presupuestos por rubros</span>
             <table>
                 <thead>
@@ -312,7 +312,9 @@
                         <span class="time-clock">{{resumen.FechaPresupuesto.dato}}</span>
                     </div>
                     <div class="update-download">
-                        <button id="button-dialog-table" class="download-option"><i class="fa fa-code" aria-hidden="true"></i>Embed</button>
+                        <div class="download-option">
+                            <button id="button-dialog-table" class="embed-button"><i class="fa fa-code" aria-hidden="true"></i>Embed</button>
+                        </div>
                         <div id="dialog-table" title="Tabla de presupuesto">
                             <div class="input-container">
                                 <input value="&lt;embed src=&quot;https://presupuesto.redciudadana.org/embed/presupuesto/tabla&quot;&gt;">
@@ -382,7 +384,6 @@
     </footer>
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel ="stylesheet">
     <script>
         $(function() {
             $( "#tabs" ).tabs();
@@ -408,7 +409,7 @@
         });
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script> 
+    <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript">
         var treemap = {{ treemap | dump | safe }};
         var financiamiento = {{ financiamiento | dump | safe }};
