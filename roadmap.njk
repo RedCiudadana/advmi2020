@@ -14,7 +14,7 @@
     </div>
     <div class="container" id="roadmap-page">
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-left">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -23,7 +23,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-right">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-left">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -45,7 +45,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-right">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-left">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -65,7 +65,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-right">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -78,7 +78,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-left">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -87,7 +87,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="box-right">
                     <small>ENERO 2021</small>
                     <h2>Step 1</h2>
@@ -114,50 +114,68 @@
         }
 
         .box-left {
-            float: left;
             margin-bottom: 4rem;
-            padding: 1.5rem;
             background-color: white;
+            padding: 1.5rem;
             box-shadow: 0 2px 4px 0 hsla(0,0%,69%,.5);
             border-radius: 0 0 4px 4px;
-            width: calc(100% - 40px);
-            position: relative;
-            top: -10px;
         }
 
         .box-right {
-            float: right;
-            margin-top: 6rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
+            margin-bottom: 4rem;
             background-color: white;
+            padding: 1.5rem;
             box-shadow: 0 2px 4px 0 hsla(0,0%,69%,.5);
             border-radius: 0 0 4px 4px;
-            width: calc(100% - 40px);
-            position: relative;
         }
 
-        .box-left:after {
-            content: "";
-            position: absolute;
-            width: 34px;
-            height: 29px;
-            right: -71px;
-            top: -10px;
-            background: url(https://presupuestoabierto.gob.cl/images/roadmap-marker.svg?c0441d2…);
-            display: block;
-        }
+        @media (min-width: 768px) {
+            .box-left {
+                float: left;
+                margin-bottom: 4rem;
+                padding: 1.5rem;
+                background-color: white;
+                box-shadow: 0 2px 4px 0 hsla(0,0%,69%,.5);
+                border-radius: 0 0 4px 4px;
+                width: calc(100% - 40px);
+                position: relative;
+                top: -10px;
+            }
 
-        .box-right:after {
-            content: "";
-            position: absolute;
-            width: 34px;
-            height: 29px;
-            left: -67px;
-            top: -10px;
-            background: url(https://presupuestoabierto.gob.cl/images/roadmap-marker.svg?c0441d2…);
-            display: block;
-            transform: rotate(180deg);
+            .box-right {
+                float: right;
+                margin-top: 6rem;
+                margin-bottom: 2rem;
+                padding: 1.5rem;
+                background-color: white;
+                box-shadow: 0 2px 4px 0 hsla(0,0%,69%,.5);
+                border-radius: 0 0 4px 4px;
+                width: calc(100% - 40px);
+                position: relative;
+            }
+
+            .box-left:after {
+                content: "";
+                position: absolute;
+                width: 34px;
+                height: 29px;
+                right: -71px;
+                top: -10px;
+                background: url(https://presupuestoabierto.gob.cl/images/roadmap-marker.svg?c0441d2…);
+                display: block;
+            }
+
+            .box-right:after {
+                content: "";
+                position: absolute;
+                width: 34px;
+                height: 29px;
+                left: -67px;
+                top: -10px;
+                background: url(https://presupuestoabierto.gob.cl/images/roadmap-marker.svg?c0441d2…);
+                display: block;
+                transform: rotate(180deg);
+            }
         }
 
         #roadmap-page {

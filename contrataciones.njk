@@ -23,9 +23,13 @@
         </div>
     </section>
     <section class="section-graph">
-        <div class="chart container" style="width: 900px; margin: auto;">
-            <canvas id="chart-area" style="margin-bottom: 1.4rem;"></canvas>
-            <canvas id="canvas"></canvas>
+        <div class="chart-container">
+            <div class="chart">
+                <canvas id="chart-area"></canvas>
+            </div>
+            <div class="chart">
+                <canvas id="chart-bar"></canvas>
+            </div>
         </div>
         <div class="section-update">
             <span class="update-label">
@@ -188,7 +192,7 @@
                     ]
                 }]
             };
-            ctx = document.getElementById('canvas').getContext('2d');
+            ctx = document.getElementById('chart-bar').getContext('2d');
             window.myBar = new Chart(ctx, {
                 type: 'bar',
                 data: config,
@@ -218,4 +222,10 @@
 {% endblock %}
 
 {% block page_styles %}
+    <style>
+        .chart {
+            height: 700px;
+            width: 200px;
+        }
+    </style>
 {% endblock %}
